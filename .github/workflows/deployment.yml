@@ -1,0 +1,20 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deployment_prod:
+    name: Deploy to prod
+    uses: sightsoundtheatres/ActionsWorkflows/.github/workflows/cdk-frontend-deployment.yml@main
+    with:
+      environment: 'prod'
+      cdk_role: '***REMOVED***'
+      cdk_stack: 'MPOS-Calculator-PROD'
+    permissions: # needed for AWS creds https://github.com/aws-actions/configure-aws-credentials/issues/271#issuecomment-931012696
+      id-token: write
+      contents: write
+      packages: read
