@@ -12,8 +12,7 @@ let prodMposCalcStack =  new MposCalcStack(app, 'MPOS-Calculator-PROD', {
     region: 'us-east-1'
   },
   domainName: ['mposcalculator.sight-sound.com'],
-  //change me
-  deploymentSource:'../dist/'
+  deploymentSource:'../build/'
 });
 
 Tags.of(prodMposCalcStack).add("DR", "Primary");
