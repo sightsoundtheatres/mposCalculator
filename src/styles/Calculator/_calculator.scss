@@ -1,0 +1,45 @@
+.calculator {
+    background-color: rgba(31, 31, 31, 0.75);
+    box-shadow: 0px 4px 10px rgba(6, 8, 12, 0.4);
+    padding: 0 10;
+    width: fit-content;
+    min-width: 318px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+    
+    &-header {
+        height: 2rem;
+        width: 100%;
+        background-color: transparent;
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+            width: fit-content;
+            height: fit-content;
+            padding: 0.5rem 1.5rem;
+            background-color: transparent;
+            border: none;
+            transition: ease-in-out 0.1s;
+
+            img {
+                height: 12px;
+                width: auto;
+            }
+            
+            &:hover {
+                background-color: #ce1a1a;
+            }
+        }
+    }
+
+    &-wrapper {
+        display: flex;
+        backdrop-filter: blur(5px);
+    }
+}
+
