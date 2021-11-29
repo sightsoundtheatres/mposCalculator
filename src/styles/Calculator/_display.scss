@@ -1,0 +1,33 @@
+.display {
+    height: 100px;
+    word-wrap: break-all;  
+    position: relative;
+    overflow-wrap: break-word;
+    display: flex;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+
+    
+
+    &-value {
+        position: absolute;
+        bottom: 0;
+        right: 1rem;
+        color: #ffffff;
+        margin-right: 3px;
+        font-size: 2.8rem;
+        font-weight: 500;
+        max-width: 300px;
+    }
+
+    &-expression {
+        position: absolute;
+        bottom: 3.5rem;
+        right: 1rem;
+        margin-right: 3px;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 400;
+    }
+}.smaller {
+    font-size: 1.5rem;
+}
