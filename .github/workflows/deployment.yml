@@ -7,14 +7,50 @@ on:
   workflow_dispatch:
 
 jobs:
-  deployment_prod:
-    name: Deploy to prod
-    uses: sightsoundtheatres/ActionsWorkflows/.github/workflows/cdk-frontend-deployment.yml@main
-    with:
-      environment: 'prod'
-      cdk_role: '***REMOVED***'
-      cdk_stack: 'MPOS-Calculator-PROD'
+  cdk_frontend_deployment:
+    name: Deploy CDK Frontend
+    environment: prod
+    runs-on: ubuntu-latest
+    
     permissions: # needed for AWS creds https://github.com/aws-actions/configure-aws-credentials/issues/271#issuecomment-931012696
       id-token: write
       contents: write
       packages: read
+      
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          registry-url: 'https://npm.pkg.github.com'
+          cache: 'npm'
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@master
+        with:
+          aws-region: 'us-east-1'
+          role-to-assume: '***REMOVED***'
+
+      - name: Compile client code
+        env:
+          CDK_DIRECTORY: ${{ inputs.cdk_directory }}
+        run: |
+          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
+          npm ci
+          npm run build
+          [ "$CDK_DIRECTORY" != "." ] && cd $CDK_DIRECTORY || true
+          npm ci
+          [ "$CDK_DIRECTORY" != "." ] && cd .. || true
+
+      - name: CDK Deploy
+        uses: youyo/aws-cdk-github-actions@v2
+        with:
+          cdk_subcommand: 'deploy'
+          cdk_stack: 'MPOS-Calculator-PROD'
+          working_dir: './cdk'
+          cdk_args: '--require-approval never'
