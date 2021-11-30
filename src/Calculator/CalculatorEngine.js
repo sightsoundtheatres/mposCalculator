@@ -122,7 +122,7 @@ class CalculatorEngine {
 
         const expression = register.join(' ');
 
-        result = math.eval(expression);
+        result = math.evaluate(expression);
         currentValue = result.toString();
         history.splice(0, 0, { expression, result });
         register = [];
