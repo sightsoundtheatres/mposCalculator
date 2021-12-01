@@ -42,14 +42,14 @@ jobs:
           CDK_DIRECTORY: ${{ inputs.cdk_directory }}
         run: |
           aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
-          echo "{path}"
+          echo "$PATH"
           npm ci
           npm run build
           echo 'build good'
-          [ "$CDK_DIRECTORY" != "." ] && cd $CDK_DIRECTORY || true
-          echo "{path}"
+          cd $CDK_DIRECTORY
+          echo "$PATH"
           npm ci
-          [ "$CDK_DIRECTORY" != "." ] && cd .. || true
+          cd ..
 
       - name: CDK Deploy
         uses: youyo/aws-cdk-github-actions@v2
