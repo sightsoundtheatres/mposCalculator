@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@aws-cdk/core": "1.134.0",
-    "@sightsoundtheatres/cdk-sightsound-fe": "~1.1.21",
+    "@sightsoundtheatres/cdk-sightsound-fe": "^1.1.21",
     "source-map-support": "^0.5.16"
   }
 }
