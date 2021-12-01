@@ -39,15 +39,11 @@ jobs:
       - name: Compile client code
         env:
           CI: false
-          CDK_DIRECTORY: ${{ inputs.cdk_directory }}
         run: |
           aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
-          echo "$PATH"
           npm ci
           npm run build
-          echo 'build good'
-          cd $CDK_DIRECTORY
-          echo "$PATH"
+          cd "./cdk"
           npm ci
           cd ..
 
