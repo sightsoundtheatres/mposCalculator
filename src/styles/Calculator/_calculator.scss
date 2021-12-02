@@ -4,12 +4,17 @@
     padding: 0 10;
     width: fit-content;
     min-width: 318px;
+    max-width: fit-content;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     
     &-header {
         height: 2rem;
