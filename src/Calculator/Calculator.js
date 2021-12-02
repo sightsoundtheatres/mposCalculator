@@ -177,7 +177,6 @@ export default class Calculator extends Component {
         }));
     }
 
-
     
     render() {
         return (
@@ -185,15 +184,14 @@ export default class Calculator extends Component {
                 <div className="container-wrapper">
                     <div className="calculator">
                         <div className="container-header">
-                            <button className="close">
+                            {/* <button className="close">
                                 <img src={Close}/>
-                            </button>
+                            </button> */}
                         </div>
                         <ControlPanel anyHistory={this.state.history.length > 0} 
                             onToggleHistory={this.handleOnHistorySelected}
                             onMenuToggle={this.handleOnHistorySelected}
                             />
-
                         <Display value={this.state.value} expression={this.state.expression} />
 
                         <Keypad onDigit={this.handleOnDigit}
