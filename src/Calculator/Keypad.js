@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import '../styles/Calculator/_keypad.scss'
 import Backspace from '../assets/backspace.svg'
 
+
 const Keypad = (props) => {
 
     const handleOnDigit = (e) => {
@@ -12,13 +13,13 @@ const Keypad = (props) => {
     return (
         <div className="keypad">
             <div className="keypad-row">
-                <button className="secondary" value="clear-all" onClick={props.onClearAll}>CE</button>
-                <button className="secondary" value="clear" onClick={props.onClear}>C</button>
+                <button className="secondary" value="clear" onClick={props.onClear}>CE</button>
+                <button className="secondary" value="clear-all" onClick={props.onClearAll}>C</button>
                 <button className="secondary" value="backspace" onClick={props.onDelete}><img src={Backspace}/></button>
                 <button className="secondary" value="/" onClick={props.onDivide}>&divide;</button>
             </div>
             <div className="keypad-row">
-                <button className="primary" value="7" onClick={handleOnDigit}>7</button>
+                <button  className="primary" accesskey="h" value="7" onClick={handleOnDigit}>7</button>
                 <button className="primary" value="8" onClick={handleOnDigit}>8</button>
                 <button className="primary" value="9" onClick={handleOnDigit}>9</button>
                 <button className="secondary" value="*" onClick={props.onMultiply}>&times;</button>
