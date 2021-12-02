@@ -19,7 +19,7 @@ const Keypad = (props) => {
                 <button className="secondary" value="/" onClick={props.onDivide}>&divide;</button>
             </div>
             <div className="keypad-row">
-                <button  className="primary" accesskey="h" value="7" onClick={handleOnDigit}>7</button>
+                <button  className="primary" value="7" onClick={handleOnDigit}>7</button>
                 <button className="primary" value="8" onClick={handleOnDigit}>8</button>
                 <button className="primary" value="9" onClick={handleOnDigit}>9</button>
                 <button className="secondary" value="*" onClick={props.onMultiply}>&times;</button>
