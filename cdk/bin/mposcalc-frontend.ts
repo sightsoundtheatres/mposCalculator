@@ -1,12 +1,9 @@
-#!/usr/bin/env node
-import 'source-map-support/register';
-import * as cdk from '@aws-cdk/core';
+import { App, Tags } from 'aws-cdk-lib';
 import { MposCalcStack } from '../lib/mposcalc-frontend-stack';
-import { Tags } from '@aws-cdk/core';
 
-const app = new cdk.App();
+const app = new App();
 
-let prodMposCalcStack =  new MposCalcStack(app, 'MPOS-Calculator-PROD', {
+let prodMposCalcStack = new MposCalcStack(app, 'MPOS-Calculator-PROD', {
   env: {
     account: '468293815193',
     region: 'us-east-1'
@@ -15,5 +12,5 @@ let prodMposCalcStack =  new MposCalcStack(app, 'MPOS-Calculator-PROD', {
   deploymentSource:'../build/'
 });
 
-Tags.of(prodMposCalcStack).add("DR", "Primary");
-Tags.of(prodMposCalcStack).add("Environment", "PROD");
+Tags.of(prodMposCalcStack).add('DR', 'Primary');
+Tags.of(prodMposCalcStack).add('Environment', 'PROD');
