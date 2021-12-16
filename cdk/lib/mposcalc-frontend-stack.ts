@@ -1,7 +1,8 @@
-import * as cdk from '@aws-cdk/core';
+import { Stack, StackProps } from 'aws-cdk-lib';
+import { Construct } from 'constructs';
 import * as ssFE from '@sightsoundtheatres/cdk-sightsound-fe';
 
-export interface MposCalcStackStackProps extends cdk.StackProps {
+export interface MposCalcStackStackProps extends StackProps {
   /**
    * The domain name for the site to use
    */
@@ -12,14 +13,14 @@ export interface MposCalcStackStackProps extends cdk.StackProps {
   readonly deploymentSource: string;
 }
 
-export class MposCalcStack extends cdk.Stack {
-  constructor(scope: cdk.Construct, id: string, props: MposCalcStackStackProps) {
+export class MposCalcStack extends Stack {
+  constructor(scope: Construct, id: string, props: MposCalcStackStackProps) {
     super(scope, id, props);
 
-    new ssFE.FrontendConstruct
-      (this, 'MposCalcStackStack', {
+    new ssFE.FrontendConstruct(this, 'MposCalcStackStack', {
       domainNames: props.domainName,
-      deploymentSource: props.deploymentSource
+      deploymentSource: props.deploymentSource,
+      distributionLocalIdOverride: 'MposCalcStackStackSiteDistributionCFDistribution191F1A0A'
     });
   }
 }
