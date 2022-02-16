@@ -8,16 +8,13 @@ const History = (props) => (
         {
             props.history.map((expression, i) => {
                 return (
-                    <div>
-                        <div className="history-item" key={i}>
-                            <button className="history-block" onClick={() => props.onSelected(i)}>
-                                <div>
-                                    <div>{expression.expression}&nbsp;=</div>
-                                    <div>{expression.result}</div>
-                                </div>
-                            </button>
-                            
-                        </div>
+                    <div className="history-item" key={i}>
+                        <button className="history-block" onClick={() => props.onSelected(i)}>
+                            <div>
+                                <div>{expression.expression}&nbsp;=</div>
+                                <div>{expression.result}</div>
+                            </div>
+                        </button>
                     </div>
                 );
             })                                    
