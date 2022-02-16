@@ -177,6 +177,52 @@ export default class Calculator extends Component {
         }));
     }
 
+    handleKeyDown = (event) => {
+        let { key } = event
+
+        if ((/\d/).test(key)) {
+          event.preventDefault()
+          this.handleOnDigit(parseInt(key, 10))
+        } else if (key === 'Enter') {
+          event.preventDefault()
+          this.handleOnEquals()
+        } else if (key === '%') {
+          event.preventDefault()
+          this.inputPercent()
+        } else if (key === 'Backspace') {
+          event.preventDefault()
+          this.handleOnDelete();
+        } else if (key === '+') {
+          event.preventDefault()
+          this.handleOnAdd();
+        } else if (key === '-') {
+          event.preventDefault()
+          this.handleOnSubtract();
+        } else if (key === '*') {
+          event.preventDefault()
+          this.handleOnMultiply();
+        } else if (key === '/') {
+          event.preventDefault()
+          this.handleOnDivide();
+        } else if (key === 'Delete') {
+          event.preventDefault()
+          this.handleOnClear();
+        } else if (key === 'c') {
+          event.preventDefault()
+          this.handleOnClearAll();
+        } else if (key === '=') {
+          event.preventDefault()
+          this.handleOnAdd();
+        }
+    };
+
+    componentDidMount() {
+        document.addEventListener('keydown', this.handleKeyDown)
+      }
+      
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.handleKeyDown)
+    }
     
     render() {
         return (
