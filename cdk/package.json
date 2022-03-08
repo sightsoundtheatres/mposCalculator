@@ -1,8 +1,8 @@
 {
-  "name": "centerstage_fe",
+  "name": "mposcalc_fe",
   "version": "0.1.0",
   "bin": {
-    "centerstage_fe": "bin/centerstage_fe.js"
+    "mposcalc_fe": "bin/mposcalc-frontend.js"
   },
   "scripts": {
     "build": "tsc",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@sightsoundtheatres/cdk-sightsound-fe": "~2.0.1",
-    "aws-cdk-lib": "^2.0.0",
-    "constructs": "^10.0.0"
+    "aws-cdk-lib": "^2.15.0",
+    "constructs": "^10.0.82"
   }
 }
