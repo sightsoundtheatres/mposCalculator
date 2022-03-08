@@ -6,6 +6,10 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  AWS_ACCOUNT: ${{ secrets.AWS_ACCOUNT }}
+  DNS_NAME: ${{ secrets.DNS_NAME }}
+
 jobs:
   cdk_frontend_deployment:
     name: Deploy CDK Frontend
