@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Calculator/_control-panel.scss';
-import History from '../assets/history.svg'
 
 const ControlPanel = (props) => (
     <div className="control-panel">

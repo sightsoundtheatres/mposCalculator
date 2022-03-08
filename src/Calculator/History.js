@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Calculator/_history.scss'
-import Delete from '../assets/close.svg'
 
 const History = (props) => (
     <div className={`history ${props.isHistoryOpen === true ? ' opened' : ''}`}>
