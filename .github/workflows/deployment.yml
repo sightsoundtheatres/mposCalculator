@@ -38,7 +38,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@master
         with:
           aws-region: 'us-east-1'
-          role-to-assume: ${{ secrets.AWS_ACCOUNT }}
+          role-to-assume: ${{ secrets.AWS_ROLE }}
 
       - name: Compile client code
         env:
