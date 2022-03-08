@@ -2,16 +2,15 @@ import { App, Tags } from 'aws-cdk-lib';
 import { MposCalcStack } from '../lib/mposcalc-frontend-stack';
 
 const app = new App();
-const awsAccount = process.env.AWS_ACCOUNT as string;
-console.log(awsAccount);
-const domainName = process.env.DNS_NAME as string;
-console.log(domainName);
+const AWS_ACCOUNT = process.env.AWS_ACCOUNT as string;
+const DNS_NAME = process.env.DNS_NAME as string;
+
 let prodMposCalcStack = new MposCalcStack(app, 'MPOS-Calculator-PROD', {
   env: {
-    account: awsAccount,
+    account: AWS_ACCOUNT,
     region: 'us-east-1'
   },
-  domainName: [domainName],
+  domainName: [DNS_NAME],
   deploymentSource:'../build/'
 });
 
