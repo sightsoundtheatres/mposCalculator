@@ -5,10 +5,10 @@ const app = new App();
 
 let prodMposCalcStack = new MposCalcStack(app, 'MPOS-Calculator-PROD', {
   env: {
-    account: '468293815193',
+    account: '${{ secrets.AWS_ACCOUNT }}',
     region: 'us-east-1'
   },
-  domainName: ['mposcalculator.sight-sound.com'],
+  domainName: ['${{ secrets.DNS_NAME }}'],
   deploymentSource:'../build/'
 });
 
