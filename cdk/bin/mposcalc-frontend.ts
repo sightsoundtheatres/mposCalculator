@@ -3,8 +3,9 @@ import { MposCalcStack } from '../lib/mposcalc-frontend-stack';
 
 const app = new App();
 const awsAccount = process.env.AWS_ACCOUNT as string;
+console.log(awsAccount);
 const domainName = process.env.DNS_NAME as string;
-
+console.log(domainName);
 let prodMposCalcStack = new MposCalcStack(app, 'MPOS-Calculator-PROD', {
   env: {
     account: awsAccount,
