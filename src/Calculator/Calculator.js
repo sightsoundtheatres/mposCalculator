@@ -191,28 +191,31 @@ export default class Calculator extends Component {
           this.inputPercent()
         } else if (key === 'Backspace') {
           event.preventDefault()
-          this.handleOnDelete();
+          this.handleOnDelete()
         } else if (key === '+') {
           event.preventDefault()
-          this.handleOnAdd();
+          this.handleOnAdd()
         } else if (key === '-') {
           event.preventDefault()
-          this.handleOnSubtract();
+          this.handleOnSubtract()
         } else if (key === '*') {
           event.preventDefault()
-          this.handleOnMultiply();
+          this.handleOnMultiply()
         } else if (key === '/') {
           event.preventDefault()
-          this.handleOnDivide();
+          this.handleOnDivide()
         } else if (key === 'Delete') {
           event.preventDefault()
-          this.handleOnClear();
+          this.handleOnClear()
         } else if (key === 'c') {
           event.preventDefault()
-          this.handleOnClearAll();
+          this.handleOnClearAll()
         } else if (key === '=') {
           event.preventDefault()
-          this.handleOnAdd();
+          this.handleOnAdd()
+        } else if (key === '.') {
+          event.preventDefault()
+          this.handleOnDecimalPoint()
         }
     };
 
