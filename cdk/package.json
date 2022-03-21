@@ -15,7 +15,7 @@
     "typescript": "~3.9.0"
   },
   "dependencies": {
-    "@sightsoundtheatres/cdk-sightsound-fe": "~2.0.1",
+    "@sightsoundtheatres/cdk-sightsound-fe": "~2.0.2",
     "aws-cdk-lib": "^2.15.0",
     "constructs": "^10.0.82"
   }
