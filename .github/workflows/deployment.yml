@@ -43,7 +43,6 @@ jobs:
       - name: Compile client code
         env:
           CI: false
-          NODE_AUTH_TOKEN: ${{ secrets.PACKAGES_TOKEN  }}
         run: |
           aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
           npm ci
